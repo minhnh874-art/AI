@@ -1,9 +1,3 @@
-# Air India Turnaround Checklist - GitHub Pages + Google Sheets
-
-Bộ này gồm:
-- `index.html`: website checklist để upload lên GitHub Pages.
-- `Code.gs`: Google Apps Script backend để nhận dữ liệu và ghi vào Google Sheets.
-
 ## Luồng dữ liệu
 1. Nhân viên mở website checklist.
 2. Nhập Flight No., Date, ATA/Chock-on và các Actual Time.
@@ -13,9 +7,3 @@ Bộ này gồm:
    - Sheet theo ngày bay, ví dụ `2026-07-05`: chi tiết từng task của checklist.
 5. Nếu gửi lại cùng Flight Date + Flight No., dữ liệu cũ cùng RecordKey được thay bằng bản mới.
 
-## Việc anh cần chỉnh trong index.html
-Tìm dòng:
-```js
-const GOOGLE_SCRIPT_URL = 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
-```
-Thay bằng Web App URL lấy từ Google Apps Script sau khi Deploy.
