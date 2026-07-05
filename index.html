@@ -1,514 +1,96 @@
 <!doctype html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Checklist Turnaround Air India</title>
-  <style>
-    :root { --red:#c8102e; --dark:#202124; --muted:#667085; --line:#e4e7ec; --bg:#f6f7f9; --green:#067647; --yellow:#b54708; }
-    * { box-sizing:border-box; }
-    body { margin:0; font-family:Arial, Helvetica, sans-serif; background:var(--bg); color:var(--dark); }
-    header { position:sticky; top:0; z-index:5; background:white; border-bottom:1px solid var(--line); padding:12px 14px; }
-    .wrap { max-width:1180px; margin:auto; }
-    .head { display:flex; justify-content:space-between; gap:12px; align-items:center; flex-wrap:wrap; }
-    h1 { margin:0; font-size:22px; color:var(--red); letter-spacing:.2px; }
-    .small { color:var(--muted); font-size:12px; margin-top:3px; }
-    .panel { background:white; border:1px solid var(--line); border-radius:14px; padding:14px; margin:14px auto; }
-    .grid { display:grid; grid-template-columns:repeat(6,1fr); gap:10px; }
-    label { display:block; font-weight:700; font-size:12px; margin-bottom:5px; color:#344054; }
-    input, textarea, select { width:100%; padding:9px 10px; border:1px solid #d0d5dd; border-radius:9px; font-size:14px; background:white; }
-    input[type=time] { min-width:112px; }
-    textarea { resize:vertical; min-height:38px; }
-    .btn { border:0; border-radius:9px; padding:9px 12px; font-weight:700; cursor:pointer; }
-    .btn-red { background:var(--red); color:white; }
-    .btn-dark { background:#344054; color:white; }
-    .btn-light { background:#f2f4f7; color:#344054; border:1px solid #d0d5dd; }
-    .btn-green { background:#067647; color:white; }
-    .actions { display:flex; gap:8px; flex-wrap:wrap; }
-    .summary { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
-    .card { background:#f9fafb; border:1px solid var(--line); border-radius:12px; padding:10px; }
-    .num { font-size:22px; font-weight:800; }
-    table { width:100%; border-collapse:collapse; font-size:13px; }
-    th, td { border-bottom:1px solid var(--line); padding:8px 6px; vertical-align:middle; }
-    th { position:sticky; top:74px; background:#fff; z-index:3; text-align:left; color:#344054; }
-    tbody tr.done { background:#f0fdf4; }
-    tbody tr.delay { background:#fff7ed; }
-    .delay-yes { color:#b42318; font-weight:800; }
-    .delay-no { color:#067647; font-weight:800; }
-    .early { color:#067647; }
-    .late { color:#b42318; font-weight:800; }
-    .row-actions { display:flex; gap:5px; flex-wrap:wrap; }
-    .nowrap { white-space:nowrap; }
-    .mobile-card { display:none; }
-    @media(max-width:900px) {
-      .grid, .summary { grid-template-columns:1fr 1fr; }
-      table { display:none; }
-      .mobile-card { display:block; border:1px solid var(--line); border-radius:14px; padding:12px; margin:10px 0; background:white; }
-      .mobile-card.done { background:#f0fdf4; }
-      .mobile-card.delay { background:#fff7ed; }
-      .m-title { font-weight:800; font-size:15px; margin-bottom:8px; }
-      .m-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
-    }
-    @media(max-width:560px) { .grid, .summary { grid-template-columns:1fr; } h1 { font-size:18px; } }
-    @media print { header, .actions, .btn, input[type=file] { display:none !important; } body { background:white; } .panel { border:none; margin:0; } table { display:table; } .mobile-card { display:none; } }
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Checklist Turnaround Air India</title>
+<style>
+:root{--red:#c8102e;--bg:#f6f7f9;--line:#d9dee8;--dark:#111827;--muted:#5b667a;--green:#067647;--orange:#b54708}*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--dark)}header{background:#fff;border-bottom:1px solid var(--line);padding:12px 3%;position:sticky;top:0;z-index:10}.head{max-width:1280px;margin:auto;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}h1{font-size:24px;color:var(--red);margin:0}.small{font-size:12px;color:var(--muted)}main{max-width:1280px;margin:auto;padding:14px 3%}.panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:14px}.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}label{display:block;font-weight:bold;font-size:12px;margin-bottom:5px}input,textarea{width:100%;border:1px solid #cfd6e4;border-radius:9px;padding:9px;font-size:14px;background:#fff}textarea{min-height:42px;resize:vertical}.btn{border:0;border-radius:9px;padding:9px 12px;font-weight:bold;cursor:pointer}.btn-red{background:var(--red);color:#fff}.btn-dark{background:#263449;color:#fff}.btn-green{background:#067647;color:#fff}.btn-light{background:#f3f5f8;border:1px solid #ccd3df}.actions{display:flex;gap:8px;flex-wrap:wrap}.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.card{background:#fafafa;border:1px solid var(--line);border-radius:12px;padding:10px}.num{font-size:22px;font-weight:800}table{width:100%;border-collapse:collapse;font-size:13px}th,td{border-bottom:1px solid var(--line);padding:7px;vertical-align:middle}th{background:#fff;text-align:left;position:sticky;top:68px}.done{background:#f0fdf4}.delay{background:#fff7ed}.yes{color:#b42318;font-weight:bold}.no{color:#067647;font-weight:bold}.late{color:#b42318;font-weight:bold}.early{color:#067647}.nowrap{white-space:nowrap}.mobile{display:none}@media(max-width:900px){.grid,.summary{grid-template-columns:1fr 1fr}table{display:none}.mobile{display:block}.mcard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;margin-bottom:10px}.mcard.done{background:#f0fdf4}.mcard.delay{background:#fff7ed}.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.mtitle{font-weight:800;margin-bottom:8px}}@media(max-width:560px){.grid,.summary{grid-template-columns:1fr}h1{font-size:19px}}@media print{header,.actions,button{display:none!important}body{background:#fff}.panel{border:0}table{display:table}.mobile{display:none}}
+</style>
 </head>
 <body>
-<header>
-  <div class="wrap head">
-    <div>
-      <h1>CHECKLIST TURNAROUND AIR INDIA</h1>
-      <div class="small">Web checklist chuyển đổi từ file Excel – ghi nhận Actual Time cột C, tự tính Delay Y/N và Delay Minutes.</div>
-    </div>
-    <div class="actions">
-      <button class="btn btn-red" onclick="saveNow()">Lưu</button>
-      <button class="btn btn-light" onclick="window.print()">In/PDF</button>
-      <button class="btn btn-green" onclick="downloadCSV()">Xuất CSV</button>
-      <button class="btn btn-dark" onclick="copyReport()">Copy báo cáo</button>
-    </div>
-  </div>
-</header>
-
-<main class="wrap">
-  <section class="panel">
-    <div class="grid">
-      <div><label>Flight No.</label><input id="flightNo" value="AI2390/AI2391"></div>
-      <div><label>Date</label><input id="flightDate" type="date"></div>
-      <div><label>STA/Chocks on planned</label><input id="baseTime" type="time" value="07:20"></div>
-      <div><label>Aircraft / Reg.</label><input id="aircraft" placeholder="VD: VT-..."></div>
-      <div><label>Bay / Stand</label><input id="bay" placeholder="VD: 32"></div>
-      <div><label>Prepared by</label><input id="preparedBy" placeholder="Tên NV/TL"></div>
-    </div>
-    <div class="small" style="margin-top:8px">Planned Time các dòng được tính theo mốc baseTime giống công thức Excel: B5 + TIME(0, số phút, 0).</div>
-  </section>
-
-  <section class="panel summary" id="summary"></section>
-
-  <section class="panel">
-    <div class="actions" style="margin-bottom:10px">
-      <button class="btn btn-light" onclick="stampAllEmpty()">Ghi giờ hiện tại cho mục trống đầu tiên</button>
-      <button class="btn btn-light" onclick="clearActualTimes()">Xóa Actual Time</button>
-      <button class="btn btn-light" onclick="resetAll()">Reset toàn bộ</button>
-    </div>
-    <table>
-      <thead>
-        <tr>
-          <th>STT</th><th>Planned Time</th><th>Actual Time</th><th>Task</th><th>PIC</th><th>Delay Y/N</th><th>Delay Minutes</th><th>Reason/Remark</th><th>Evidence/Photo</th><th>Action</th>
-        </tr>
-      </thead>
-      <tbody id="rows"></tbody>
-    </table>
-    <div id="mobileRows"></div>
-  </section>
+<header><div class="head"><div><h1>CHECKLIST TURNAROUND AIR INDIA</h1><div class="small">Ghi nhận Actual Time cột C – tự tính Planned Time, Delay Y/N, Delay Minutes và gửi dữ liệu về Google Sheets.</div></div><div class="actions"><button class="btn btn-red" onclick="saveNow()">Lưu</button><button class="btn btn-light" onclick="window.print()">In/PDF</button><button class="btn btn-green" onclick="downloadCSV()">Xuất CSV</button><button class="btn btn-red" onclick="submitToGoogleSheets()">Gửi Google Sheets</button><button class="btn btn-dark" onclick="copyReport()">Copy báo cáo</button></div></div></header>
+<main>
+<section class="panel"><div class="grid"><div><label>Flight No.</label><input id="flightNo" value="AI2390/AI2391"></div><div><label>Date</label><input id="flightDate" type="date"></div><div><label>ATA/Chock-on</label><input id="baseTime" type="time" value="07:20"></div><div><label>Aircraft / Reg.</label><input id="aircraft"></div><div><label>Bay / Stand</label><input id="bay"></div><div><label>Prepared by</label><input id="preparedBy"></div></div><div class="small" style="margin-top:8px">Planned Time tính theo công thức Excel tương đương: mốc ATA/Chock-on + số phút offset từng dòng.</div></section>
+<section class="panel summary" id="summary"></section>
+<section class="panel"><div class="actions" style="margin-bottom:10px"><button class="btn btn-light" onclick="stampFirstEmpty()">Ghi giờ hiện tại cho mục trống đầu tiên</button><button class="btn btn-light" onclick="clearActualTimes()">Xóa Actual Time</button><button class="btn btn-light" onclick="resetAll()">Reset toàn bộ</button></div><table><thead><tr><th>STT</th><th>Planned Time</th><th>Actual Time</th><th>Task</th><th>PIC</th><th>Delay Y/N</th><th>Delay Minutes</th><th>Reason/Remark</th><th>Action</th></tr></thead><tbody id="rows"></tbody></table><div id="mobileRows" class="mobile"></div><div class="small" id="sheetStatus" style="margin-top:10px"></div></section>
 </main>
-
 <script>
-const CHECKLIST = [
-  {
-    "stt": 1,
-    "offset": 0,
-    "task": "Chocks on",
-    "pic": "Ramp",
-    "remark": "Xác nhận chèn bánh hoàn tất"
-  },
-  {
-    "stt": 2,
-    "offset": 2,
-    "task": "Bag/Cargo offload start",
-    "pic": "Baggage/Ramp",
-    "remark": "Bắt đầu dỡ hành lý/hàng hóa"
-  },
-  {
-    "stt": 3,
-    "offset": 3,
-    "task": "Doors Open",
-    "pic": "Cabin/Ramp",
-    "remark": "Cửa tàu bay mở"
-  },
-  {
-    "stt": 4,
-    "offset": 3,
-    "task": "Passengers Deplaning started",
-    "pic": "Ramp/Gate",
-    "remark": "Khách bắt đầu xuống tàu bay"
-  },
-  {
-    "stt": 5,
-    "offset": 10,
-    "task": "Cabin crew reported at aircraft",
-    "pic": "Cabin crew",
-    "remark": "Tổ bay cabin có mặt tại tàu bay"
-  },
-  {
-    "stt": 6,
-    "offset": 11,
-    "task": "Passengers Deplaning end",
-    "pic": "Ramp/Gate",
-    "remark": "Khách xuống hết"
-  },
-  {
-    "stt": 7,
-    "offset": 11,
-    "task": "Cleaning Start",
-    "pic": "Cleaning",
-    "remark": "Bắt đầu vệ sinh"
-  },
-  {
-    "stt": 8,
-    "offset": 16,
-    "task": "Bag/Cargo offload end",
-    "pic": "Baggage/Ramp",
-    "remark": "Kết thúc dỡ hành lý/hàng hóa"
-  },
-  {
-    "stt": 9,
-    "offset": 18,
-    "task": "Cleaning End",
-    "pic": "Cleaning",
-    "remark": "Kết thúc vệ sinh"
-  },
-  {
-    "stt": 10,
-    "offset": 20,
-    "task": "Fuel Bowser reported",
-    "pic": "Fuel",
-    "remark": "Xe tra nạp có mặt"
-  },
-  {
-    "stt": 11,
-    "offset": 24,
-    "task": "Catering Start",
-    "pic": "Catering",
-    "remark": "Bắt đầu catering"
-  },
-  {
-    "stt": 12,
-    "offset": 24,
-    "task": "Fueling Start",
-    "pic": "Fuel",
-    "remark": "Bắt đầu tra nạp nhiên liệu"
-  },
-  {
-    "stt": 13,
-    "offset": 31,
-    "task": "Security Check Start",
-    "pic": "Security",
-    "remark": "Bắt đầu kiểm tra an ninh tàu bay"
-  },
-  {
-    "stt": 14,
-    "offset": 35,
-    "task": "Catering End",
-    "pic": "Catering",
-    "remark": "Kết thúc catering"
-  },
-  {
-    "stt": 15,
-    "offset": 35,
-    "task": "Engineering Clearance",
-    "pic": "Engineering",
-    "remark": "Kỹ sư clearance"
-  },
-  {
-    "stt": 16,
-    "offset": 35,
-    "task": "Pilots Onboard",
-    "pic": "Flight crew",
-    "remark": "Phi công lên tàu bay"
-  },
-  {
-    "stt": 17,
-    "offset": 36,
-    "task": "Bag/Cargo loading start",
-    "pic": "Baggage/Ramp",
-    "remark": "Bắt đầu chất xếp hành lý/hàng hóa"
-  },
-  {
-    "stt": 18,
-    "offset": 37,
-    "task": "Catering Handover",
-    "pic": "Catering/Ramp",
-    "remark": "Hoàn tất bàn giao catering"
-  },
-  {
-    "stt": 19,
-    "offset": 37,
-    "task": "Security Check End",
-    "pic": "Security/Ramp",
-    "remark": "Kết thúc kiểm tra an ninh"
-  },
-  {
-    "stt": 20,
-    "offset": 38,
-    "task": "Boarding clearance",
-    "pic": "Ramp/Gate",
-    "remark": "Cho phép boarding"
-  },
-  {
-    "stt": 21,
-    "offset": 38,
-    "task": "Passengers boarding start",
-    "pic": "Gate/Ramp",
-    "remark": "Khách bắt đầu lên tàu bay"
-  },
-  {
-    "stt": 22,
-    "offset": 47,
-    "task": "Fuelling End",
-    "pic": "Fuel",
-    "remark": "Kết thúc tra nạp nhiên liệu"
-  },
-  {
-    "stt": 23,
-    "offset": 47,
-    "task": "Gate No Show notification to aircraft",
-    "pic": "Gate/Ramp",
-    "remark": "Nhận ttin khách ko show up (GNS)"
-  },
-  {
-    "stt": 24,
-    "offset": 48,
-    "task": "GNS bag offload start",
-    "pic": "Baggage/Ramp",
-    "remark": "Bắt đầu offload hành lý GNS"
-  },
-  {
-    "stt": 25,
-    "offset": 51,
-    "task": "Bag/Cargo loading end",
-    "pic": "Baggage/Ramp",
-    "remark": "Kết thúc chất xếp hành lý/hàng hóa"
-  },
-  {
-    "stt": 26,
-    "offset": 54,
-    "task": "Passengers boarding end",
-    "pic": "Gate/Ramp",
-    "remark": "Khách lên tàu bay hoàn tất"
-  },
-  {
-    "stt": 27,
-    "offset": 56,
-    "task": "GNS bag offload end",
-    "pic": "Baggage/Ramp",
-    "remark": "Kết thúc offload hành lý GNS"
-  },
-  {
-    "stt": 28,
-    "offset": 56,
-    "task": "Hold closed",
-    "pic": "Ramp/Baggage",
-    "remark": "Đóng cửa hầm hàng"
-  },
-  {
-    "stt": 29,
-    "offset": 57,
-    "task": "Engineering paperwork completed",
-    "pic": "Engineering",
-    "remark": "Hoàn tất giấy tờ kỹ thuật"
-  },
-  {
-    "stt": 30,
-    "offset": 57,
-    "task": "All paperwork completed",
-    "pic": "Ramp/LC",
-    "remark": "Hoàn tất toàn bộ giấy tờ"
-  },
-  {
-    "stt": 31,
-    "offset": 57,
-    "task": "Ground staff Offboard",
-    "pic": "Ramp/GSSĐ",
-    "remark": "Nhân viên mặt đất rời tàu bay"
-  },
-  {
-    "stt": 32,
-    "offset": 60,
-    "task": "Doors Closed",
-    "pic": "Cabin/Ramp",
-    "remark": "Đóng cửa tàu bay"
-  },
-  {
-    "stt": 33,
-    "offset": 60,
-    "task": "Tow/Tractor connected",
-    "pic": "Pushback/HS",
-    "remark": "Kết nối xe kéo đẩy"
-  },
-  {
-    "stt": 34,
-    "offset": 60,
-    "task": "Engineers ready to pushback",
-    "pic": "Engineering/HS",
-    "remark": "Kỹ thuật sẵn sàng pushback"
-  },
-  {
-    "stt": 35,
-    "offset": 65,
-    "task": "AOBT",
-    "pic": "Ramp",
-    "remark": "Tàu lăn"
+const GOOGLE_SCRIPT_URL = 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
+const CHECKLIST = [{"stt": 1, "offset": 0, "task": "Chocks on", "pic": "Ramp", "remark": "Xác nhận chèn bánh hoàn tất"}, {"stt": 2, "offset": 2, "task": "Bag/Cargo offload start", "pic": "Baggage/Ramp", "remark": "Bắt đầu dỡ hành lý/hàng hóa"}, {"stt": 3, "offset": 3, "task": "Doors Open", "pic": "Cabin/Ramp", "remark": "Cửa tàu bay mở"}, {"stt": 4, "offset": 3, "task": "Passengers Deplaning started", "pic": "Ramp/Gate", "remark": "Khách bắt đầu xuống tàu bay"}, {"stt": 5, "offset": 10, "task": "Cabin crew reported at aircraft", "pic": "Cabin crew", "remark": "Tổ bay cabin có mặt tại tàu bay"}, {"stt": 6, "offset": 11, "task": "Passengers Deplaning end", "pic": "Ramp/Gate", "remark": "Khách xuống hết"}, {"stt": 7, "offset": 11, "task": "Cleaning Start", "pic": "Cleaning", "remark": "Bắt đầu vệ sinh"}, {"stt": 8, "offset": 16, "task": "Bag/Cargo offload end", "pic": "Baggage/Ramp", "remark": "Kết thúc dỡ hành lý/hàng hóa"}, {"stt": 9, "offset": 18, "task": "Cleaning End", "pic": "Cleaning", "remark": "Kết thúc vệ sinh"}, {"stt": 10, "offset": 20, "task": "Fuel Bowser reported", "pic": "Fuel", "remark": "Xe tra nạp có mặt"}, {"stt": 11, "offset": 24, "task": "Catering Start", "pic": "Catering", "remark": "Bắt đầu catering"}, {"stt": 12, "offset": 24, "task": "Fueling Start", "pic": "Fuel", "remark": "Bắt đầu tra nạp nhiên liệu"}, {"stt": 13, "offset": 31, "task": "Security Check Start", "pic": "Security", "remark": "Bắt đầu kiểm tra an ninh tàu bay"}, {"stt": 14, "offset": 35, "task": "Catering End", "pic": "Catering", "remark": "Kết thúc catering"}, {"stt": 15, "offset": 35, "task": "Engineering Clearance", "pic": "Engineering", "remark": "Kỹ sư clearance"}, {"stt": 16, "offset": 35, "task": "Pilots Onboard", "pic": "Flight crew", "remark": "Phi công lên tàu bay"}, {"stt": 17, "offset": 36, "task": "Bag/Cargo loading start", "pic": "Baggage/Ramp", "remark": "Bắt đầu chất xếp hành lý/hàng hóa"}, {"stt": 18, "offset": 37, "task": "Catering Handover", "pic": "Catering/Ramp", "remark": "Hoàn tất bàn giao catering"}, {"stt": 19, "offset": 37, "task": "Security Check End", "pic": "Security/Ramp", "remark": "Kết thúc kiểm tra an ninh"}, {"stt": 20, "offset": 38, "task": "Boarding clearance", "pic": "Ramp/Gate", "remark": "Cho phép boarding"}, {"stt": 21, "offset": 38, "task": "Passengers boarding start", "pic": "Gate/Ramp", "remark": "Khách bắt đầu lên tàu bay"}, {"stt": 22, "offset": 47, "task": "Fuelling End", "pic": "Fuel", "remark": "Kết thúc tra nạp nhiên liệu"}, {"stt": 23, "offset": 47, "task": "Gate No Show notification to aircraft", "pic": "Gate/Ramp", "remark": "Nhận ttin khách ko show up (GNS)"}, {"stt": 24, "offset": 48, "task": "GNS bag offload start", "pic": "Baggage/Ramp", "remark": "Bắt đầu offload hành lý GNS"}, {"stt": 25, "offset": 51, "task": "Bag/Cargo loading end", "pic": "Baggage/Ramp", "remark": "Kết thúc chất xếp hành lý/hàng hóa"}, {"stt": 26, "offset": 54, "task": "Passengers boarding end", "pic": "Gate/Ramp", "remark": "Khách lên tàu bay hoàn tất"}, {"stt": 27, "offset": 56, "task": "GNS bag offload end", "pic": "Baggage/Ramp", "remark": "Kết thúc offload hành lý GNS"}, {"stt": 28, "offset": 56, "task": "Hold closed", "pic": "Ramp/Baggage", "remark": "Đóng cửa hầm hàng"}, {"stt": 29, "offset": 57, "task": "Engineering paperwork completed", "pic": "Engineering", "remark": "Hoàn tất giấy tờ kỹ thuật"}, {"stt": 30, "offset": 57, "task": "All paperwork completed", "pic": "Ramp/LC", "remark": "Hoàn tất toàn bộ giấy tờ"}, {"stt": 31, "offset": 57, "task": "Ground staff Offboard", "pic": "Ramp/GSSĐ", "remark": "Nhân viên mặt đất rời tàu bay"}, {"stt": 32, "offset": 60, "task": "Doors Closed", "pic": "Cabin/Ramp", "remark": "Đóng cửa tàu bay"}, {"stt": 33, "offset": 60, "task": "Tow/Tractor connected", "pic": "Pushback/HS", "remark": "Kết nối xe kéo đẩy"}, {"stt": 34, "offset": 60, "task": "Engineers ready to pushback", "pic": "Engineering/HS", "remark": "Kỹ thuật sẵn sàng pushback"}, {"stt": 35, "offset": 65, "task": "AOBT", "pic": "Ramp", "remark": "Tàu lăn"}];
+const KEY = 'turnaroundChecklistAI_v5_googleSheets';
+function el(id){return document.getElementById(id)}
+function pad(n){return String(n).padStart(2,'0')}
+function todayISO(){const d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())}
+function timeToMin(t){if(!t)return null;const a=t.split(':').map(Number);return a[0]*60+a[1]}
+function minToTime(m){m=((m%1440)+1440)%1440;return pad(Math.floor(m/60))+':'+pad(m%60)}
+function planned(offset){return minToTime(timeToMin(el('baseTime').value||'07:20')+offset)}
+function diffMin(actual,plan){if(!actual||!plan)return null;let d=timeToMin(actual)-timeToMin(plan);if(d>720)d-=1440;if(d<-720)d+=1440;return d}
+function diffText(actual,plan){const d=diffMin(actual,plan);if(d===null)return '';const sign=d<0?'-':'';const a=Math.abs(d);return sign+pad(Math.floor(a/60))+':'+pad(a%60)}
+function delayYN(actual,plan){const d=diffMin(actual,plan);if(d===null)return '';return d>0?'Yes':'No'}
+function getData(){let d={};try{d=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){};d.meta=d.meta||{};d.rows=d.rows||{};return d}
+function setData(d){localStorage.setItem(KEY,JSON.stringify(d))}
+function loadMeta(){const d=getData();el('flightNo').value=d.meta.flightNo||'AI2390/AI2391';el('flightDate').value=d.meta.flightDate||todayISO();el('baseTime').value=d.meta.baseTime||'07:20';el('aircraft').value=d.meta.aircraft||'';el('bay').value=d.meta.bay||'';el('preparedBy').value=d.meta.preparedBy||''}
+function saveMeta(){const d=getData();d.meta={flightNo:el('flightNo').value,flightDate:el('flightDate').value,baseTime:el('baseTime').value,aircraft:el('aircraft').value,bay:el('bay').value,preparedBy:el('preparedBy').value};setData(d)}
+function saveRows(){const d=getData();CHECKLIST.forEach(i=>{d.rows[i.stt]=d.rows[i.stt]||{};const a=el('actual_'+i.stt);const r=el('reason_'+i.stt);if(a)d.rows[i.stt].actual=a.value;if(r)d.rows[i.stt].reason=r.value});setData(d);updateSummary()}
+function saveNow(){saveMeta();saveRows();alert('Đã lưu trên trình duyệt này.')}
+function render(){saveMeta();const d=getData();el('rows').innerHTML='';el('mobileRows').innerHTML='';CHECKLIST.forEach(i=>{const r=d.rows[i.stt]||{};const p=planned(i.offset);const a=r.actual||'';const yn=delayYN(a,p);const dm=diffText(a,p);const cls=a?(yn==='Yes'?'delay':'done'):'';el('rows').insertAdjacentHTML('beforeend','<tr class="'+cls+'"><td class="nowrap">'+i.stt+'</td><td class="nowrap">'+p+'</td><td><input type="time" id="actual_'+i.stt+'" value="'+a+'" onchange="saveRows();render()"></td><td><b>'+i.task+'</b><div class="small">'+i.remark+'</div></td><td>'+i.pic+'</td><td class="'+(yn==='Yes'?'yes':'no')+'">'+yn+'</td><td class="'+(yn==='Yes'?'late':'early')+'">'+dm+'</td><td><textarea id="reason_'+i.stt+'" oninput="saveRows()">'+(r.reason||'')+'</textarea></td><td><button class="btn btn-red" onclick="stamp('+i.stt+')">Now</button> <button class="btn btn-light" onclick="clearOne('+i.stt+')">Xóa</button></td></tr>');el('mobileRows').insertAdjacentHTML('beforeend','<div class="mcard '+cls+'"><div class="mtitle">'+i.stt+'. '+i.task+'</div><div class="mgrid"><div><label>Planned</label><input value="'+p+'" disabled></div><div><label>Actual</label><input type="time" id="m_actual_'+i.stt+'" value="'+a+'" onchange="syncActual('+i.stt+',this.value)"></div><div><label>PIC</label><input value="'+i.pic+'" disabled></div><div><label>Delay</label><input value="'+yn+' / '+dm+'" disabled></div></div><label>Reason/Remark</label><textarea id="m_reason_'+i.stt+'" oninput="syncReason('+i.stt+',this.value)">'+(r.reason||'')+'</textarea><div class="actions" style="margin-top:8px"><button class="btn btn-red" onclick="stamp('+i.stt+')">Ghi giờ hiện tại</button><button class="btn btn-light" onclick="clearOne('+i.stt+')">Xóa</button></div></div>')});updateSummary()}
+function syncActual(stt,v){const x=el('actual_'+stt);if(x)x.value=v;saveRows();render()}
+function syncReason(stt,v){const x=el('reason_'+stt);if(x)x.value=v;saveRows()}
+function stamp(stt){const n=new Date();const v=pad(n.getHours())+':'+pad(n.getMinutes());const a=el('actual_'+stt);if(a)a.value=v;saveRows();render()}
+function clearOne(stt){const a=el('actual_'+stt);if(a)a.value='';saveRows();render()}
+function stampFirstEmpty(){const d=getData();const x=CHECKLIST.find(i=>!((d.rows[i.stt]||{}).actual));if(x)stamp(x.stt)}
+function clearActualTimes(){if(!confirm('Xóa toàn bộ Actual Time?'))return;const d=getData();CHECKLIST.forEach(i=>{d.rows[i.stt]=d.rows[i.stt]||{};d.rows[i.stt].actual=''}) ;setData(d);render()}
+function resetAll(){if(!confirm('Reset toàn bộ dữ liệu?'))return;localStorage.removeItem(KEY);loadMeta();render()}
+function updateSummary(){const d=getData();let done=0,late=0,early=0;CHECKLIST.forEach(i=>{const r=d.rows[i.stt]||{};if(r.actual){done++;delayYN(r.actual,planned(i.offset))==='Yes'?late++:early++}});el('summary').innerHTML='<div class="card"><div class="small">Tổng mốc</div><div class="num">'+CHECKLIST.length+'</div></div><div class="card"><div class="small">Đã ghi Actual Time</div><div class="num">'+done+'</div></div><div class="card"><div class="small">Delay Yes</div><div class="num" style="color:#b42318">'+late+'</div></div><div class="card"><div class="small">On-time/Early</div><div class="num" style="color:#067647">'+early+'</div></div>'}
+function exportRows(){saveRows();const d=getData();return CHECKLIST.map(i=>{const r=d.rows[i.stt]||{};const p=planned(i.offset);return {STT:i.stt,PlannedTime:p,ActualTime:r.actual||'',Task:i.task,PIC:i.pic,DelayYN:delayYN(r.actual,p),DelayMinutes:diffText(r.actual,p),ReasonRemark:r.reason||''}})}
+function csvEsc(v){return '"'+String(v==null?'':v).replaceAll('"','""')+'"'}
+function downloadCSV(){const rows=exportRows();const h=Object.keys(rows[0]);let csv='Flight No.,Date,Base Time,Aircraft,Bay,Prepared By\n'+[el('flightNo').value,el('flightDate').value,el('baseTime').value,el('aircraft').value,el('bay').value,el('preparedBy').value].map(csvEsc).join(',')+'\n\n';csv+=h.map(csvEsc).join(',')+'\n'+rows.map(r=>h.map(k=>csvEsc(r[k])).join(',')).join('\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='Checklist_AI_'+el('flightNo').value.replaceAll('/','-')+'_'+el('flightDate').value+'.csv';a.click();URL.revokeObjectURL(url)}
+function copyReport(){const rows=exportRows();let t='CHECKLIST TURNAROUND AIR INDIA\nFlight No.: '+el('flightNo').value+'\nDate: '+el('flightDate').value+'\nBase Time: '+el('baseTime').value+'\nAircraft: '+el('aircraft').value+'\nBay: '+el('bay').value+'\nPrepared by: '+el('preparedBy').value+'\n\n';rows.forEach(r=>{t+=r.STT+'. '+r.Task+' | Plan '+r.PlannedTime+' | Actual '+r.ActualTime+' | Delay '+r.DelayYN+' '+r.DelayMinutes+' | '+r.ReasonRemark+'\n'});navigator.clipboard.writeText(t).then(()=>alert('Đã copy báo cáo.'))}
+
+function buildPayload(){
+  saveRows();
+  const rows = exportRows();
+  return {
+    recordKey: (el('flightDate').value + '_' + el('flightNo').value).replaceAll('/','-').replaceAll(' ','_'),
+    savedAtLocal: new Date().toISOString(),
+    flightNo: el('flightNo').value,
+    flightDate: el('flightDate').value,
+    ataChockOn: el('baseTime').value,
+    aircraft: el('aircraft').value,
+    bay: el('bay').value,
+    preparedBy: el('preparedBy').value,
+    totalTasks: CHECKLIST.length,
+    completedTasks: rows.filter(r => r.ActualTime).length,
+    delayYes: rows.filter(r => r.DelayYN === 'Yes').length,
+    rows: rows
+  };
+}
+function submitToGoogleSheets(){
+  if(!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.indexOf('https://script.google.com/macros/s/AKfycbytEw7OgR_fyqlA5F_MIiBOjjceknE01JJsLfLYjVFjKvMG_NCtrG-LpGDit5DS5Vgh3A/exec') >= 0){
+    alert('Chưa cấu hình GOOGLE_SCRIPT_URL trong file index.html. Anh cần dán Web App URL của Google Apps Script trước khi dùng nút này.');
+    return;
   }
-];
-const KEY = 'turnaroundChecklistAI_v1';
-const $ = id => document.getElementById(id);
-
-function pad(n) { return String(n).padStart(2,'0'); }
-function todayISO() { const d = new Date(); return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`; }
-function timeToMin(t) { if(!t) return null; const [h,m] = t.split(':').map(Number); return h*60 + m; }
-function minToTime(min) { min = ((min % 1440) + 1440) % 1440; return `${pad(Math.floor(min/60))}:${pad(min%60)}`; }
-function diffText(actual, planned) {
-  if(!actual || !planned) return '';
-  let a = timeToMin(actual), p = timeToMin(planned);
-  let diff = a - p;
-  // xử lý qua nửa đêm nếu cần
-  if(diff > 720) diff -= 1440;
-  if(diff < -720) diff += 1440;
-  const sign = diff < 0 ? '-' : '';
-  const abs = Math.abs(diff);
-  return `${sign}${pad(Math.floor(abs/60))}:${pad(abs%60)}`;
-}
-function isDelay(actual, planned) {
-  if(!actual || !planned) return '';
-  let a = timeToMin(actual), p = timeToMin(planned);
-  let diff = a - p;
-  if(diff > 720) diff -= 1440;
-  if(diff < -720) diff += 1440;
-  return diff > 0 ? 'Yes' : 'No';
-}
-function plannedFor(offset) { return minToTime(timeToMin($('baseTime').value || '07:20') + offset); }
-function getData() {
-  const data = JSON.parse(localStorage.getItem(KEY) || '{}');
-  data.meta = data.meta || {}; data.rows = data.rows || {};
-  return data;
-}
-function setData(data) { localStorage.setItem(KEY, JSON.stringify(data)); }
-function loadMeta() {
-  const data = getData();
-  $('flightNo').value = data.meta.flightNo || 'AI2390/AI2391';
-  $('flightDate').value = data.meta.flightDate || todayISO();
-  $('baseTime').value = data.meta.baseTime || '07:20';
-  $('aircraft').value = data.meta.aircraft || '';
-  $('bay').value = data.meta.bay || '';
-  $('preparedBy').value = data.meta.preparedBy || '';
-}
-function saveMeta() {
-  const data = getData();
-  data.meta = { flightNo:$('flightNo').value, flightDate:$('flightDate').value, baseTime:$('baseTime').value, aircraft:$('aircraft').value, bay:$('bay').value, preparedBy:$('preparedBy').value };
-  setData(data);
-}
-function saveNow() { saveMeta(); saveRowsFromInputs(); alert('Đã lưu trên trình duyệt này.'); }
-function saveRowsFromInputs() {
-  const data = getData();
-  CHECKLIST.forEach(item => {
-    const stt = item.stt;
-    data.rows[stt] = data.rows[stt] || {};
-    data.rows[stt].actual = $(`actual_${stt}`)?.value || '';
-    data.rows[stt].reason = $(`reason_${stt}`)?.value || '';
-    data.rows[stt].evidenceName = $(`evidenceName_${stt}`)?.textContent || '';
+  const payload = buildPayload();
+  if(!payload.flightNo || !payload.flightDate){
+    alert('Cần nhập Flight No. và Date trước khi gửi Google Sheets.');
+    return;
+  }
+  el('sheetStatus').textContent = 'Đang gửi dữ liệu lên Google Sheets...';
+  fetch(GOOGLE_SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: {'Content-Type':'text/plain;charset=utf-8'},
+    body: JSON.stringify(payload)
+  }).then(() => {
+    el('sheetStatus').textContent = 'Đã gửi dữ liệu lên Google Sheets. Có thể mở file Google Sheets để kiểm tra.';
+    alert('Đã gửi dữ liệu lên Google Sheets.');
+  }).catch(err => {
+    el('sheetStatus').textContent = 'Lỗi gửi dữ liệu: ' + err;
+    alert('Lỗi gửi dữ liệu lên Google Sheets: ' + err);
   });
-  setData(data); updateSummary();
 }
-function evidenceInput(stt) {
-  return `<input type="file" accept="image/*" capture="environment" onchange="markEvidence(${stt}, this)"><div class="small" id="evidenceName_${stt}"></div>`;
-}
-function markEvidence(stt, input) {
-  const fname = input.files && input.files[0] ? input.files[0].name : '';
-  $(`evidenceName_${stt}`).textContent = fname;
-  const mob = $(`m_evidenceName_${stt}`); if(mob) mob.textContent = fname;
-  saveRowsFromInputs();
-}
-function rowClass(actual, planned) { const d = isDelay(actual, planned); return actual ? (d === 'Yes' ? 'delay' : 'done') : ''; }
-function render() {
-  saveMeta();
-  const data = getData();
-  const tbody = $('rows'); const mobile = $('mobileRows');
-  tbody.innerHTML = ''; mobile.innerHTML = '';
-  CHECKLIST.forEach(item => {
-    const r = data.rows[item.stt] || {};
-    const planned = plannedFor(item.offset);
-    const actual = r.actual || '';
-    const d = isDelay(actual, planned);
-    const dm = diffText(actual, planned);
-    const cls = rowClass(actual, planned);
-    tbody.insertAdjacentHTML('beforeend', `
-      <tr class="${cls}">
-        <td class="nowrap">${item.stt}</td>
-        <td class="nowrap">${planned}</td>
-        <td><input type="time" id="actual_${item.stt}" value="${actual}" onchange="saveRowsFromInputs();render()"></td>
-        <td><b>${item.task}</b><div class="small">${item.remark}</div></td>
-        <td>${item.pic}</td>
-        <td class="${d==='Yes'?'delay-yes':'delay-no'}">${d}</td>
-        <td class="${d==='Yes'?'late':'early'}">${dm}</td>
-        <td><textarea id="reason_${item.stt}" oninput="saveRowsFromInputs()">${r.reason || item.remark}</textarea></td>
-        <td>${evidenceInput(item.stt)}</td>
-        <td><div class="row-actions"><button class="btn btn-red" onclick="stamp(${item.stt})">Now</button><button class="btn btn-light" onclick="clearOne(${item.stt})">Xóa</button></div></td>
-      </tr>`);
-    const en = r.evidenceName || '';
-    mobile.insertAdjacentHTML('beforeend', `
-      <div class="mobile-card ${cls}">
-        <div class="m-title">${item.stt}. ${item.task}</div>
-        <div class="m-grid">
-          <div><label>Planned</label><input value="${planned}" disabled></div>
-          <div><label>Actual</label><input type="time" id="m_actual_${item.stt}" value="${actual}" onchange="syncActual(${item.stt}, this.value)"></div>
-          <div><label>PIC</label><input value="${item.pic}" disabled></div>
-          <div><label>Delay</label><input value="${d} / ${dm}" disabled></div>
-        </div>
-        <label style="margin-top:8px">Reason/Remark</label><textarea id="m_reason_${item.stt}" oninput="syncReason(${item.stt}, this.value)">${r.reason || item.remark}</textarea>
-        <label>Evidence/Photo</label><input type="file" accept="image/*" capture="environment" onchange="markEvidence(${item.stt}, this)"><div class="small" id="m_evidenceName_${item.stt}">${en}</div>
-        <div class="actions" style="margin-top:8px"><button class="btn btn-red" onclick="stamp(${item.stt})">Ghi giờ hiện tại</button><button class="btn btn-light" onclick="clearOne(${item.stt})">Xóa</button></div>
-      </div>`);
-    const e1 = $(`evidenceName_${item.stt}`); if(e1) e1.textContent = en;
-  });
-  updateSummary();
-}
-function syncActual(stt,val) { const el=$(`actual_${stt}`); if(el) el.value=val; saveRowsFromInputs(); render(); }
-function syncReason(stt,val) { const el=$(`reason_${stt}`); if(el) el.value=val; saveRowsFromInputs(); }
-function stamp(stt) { const now = new Date(); const val = `${pad(now.getHours())}:${pad(now.getMinutes())}`; const el=$(`actual_${stt}`); if(el) el.value=val; saveRowsFromInputs(); render(); }
-function stampAllEmpty() { const data = getData(); const first = CHECKLIST.find(i => !(data.rows[i.stt] && data.rows[i.stt].actual)); if(first) stamp(first.stt); }
-function clearOne(stt) { const el=$(`actual_${stt}`); if(el) el.value=''; const mr=$(`m_actual_${stt}`); if(mr) mr.value=''; saveRowsFromInputs(); render(); }
-function clearActualTimes() { if(!confirm('Xóa toàn bộ Actual Time?')) return; const data=getData(); CHECKLIST.forEach(i=>{ data.rows[i.stt]=data.rows[i.stt]||{}; data.rows[i.stt].actual=''; }); setData(data); render(); }
-function resetAll() { if(!confirm('Reset toàn bộ dữ liệu đã lưu trên trình duyệt này?')) return; localStorage.removeItem(KEY); loadMeta(); render(); }
-function updateSummary() {
-  const data = getData(); let done=0, late=0, early=0;
-  CHECKLIST.forEach(i=>{ const r=data.rows[i.stt]||{}; const planned=plannedFor(i.offset); if(r.actual) { done++; const d=isDelay(r.actual, planned); if(d==='Yes') late++; else early++; } });
-  $('summary').innerHTML = `<div class="card"><div class="small">Tổng mốc</div><div class="num">${CHECKLIST.length}</div></div><div class="card"><div class="small">Đã ghi Actual Time</div><div class="num">${done}</div></div><div class="card"><div class="small">Delay Yes</div><div class="num" style="color:#b42318">${late}</div></div><div class="card"><div class="small">On-time/Early</div><div class="num" style="color:#067647">${early}</div></div>`;
-}
-function rowsForExport() {
-  saveRowsFromInputs(); const data=getData();
-  return CHECKLIST.map(i=>{ const r=data.rows[i.stt]||{}; const planned=plannedFor(i.offset); return {STT:i.stt, PlannedTime:planned, ActualTime:r.actual||'', Task:i.task, PIC:i.pic, DelayYN:isDelay(r.actual, planned), DelayMinutes:diffText(r.actual, planned), ReasonRemark:r.reason||i.remark, EvidencePhoto:r.evidenceName||''}; });
-}
-function csvEscape(v) { return '"' + String(v ?? '').replaceAll('"','""') + '"'; }
-function downloadCSV() {
-  const meta = {FlightNo:$('flightNo').value, Date:$('flightDate').value, BaseTime:$('baseTime').value, Aircraft:$('aircraft').value, Bay:$('bay').value, PreparedBy:$('preparedBy').value};
-  const rows = rowsForExport();
-  const header = Object.keys(rows[0]);
-  let csv = 'Flight No.,Date,Base Time,Aircraft,Bay,Prepared By
-' + [meta.FlightNo,meta.Date,meta.BaseTime,meta.Aircraft,meta.Bay,meta.PreparedBy].map(csvEscape).join(',') + '
 
-';
-  csv += header.map(csvEscape).join(',') + '
-' + rows.map(r=>header.map(h=>csvEscape(r[h])).join(',')).join('
-');
-  const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
-  const url = URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download=`Checklist_AI_${$('flightNo').value.replaceAll('/','-')}_${$('flightDate').value}.csv`; a.click(); URL.revokeObjectURL(url);
-}
-function copyReport() {
-  const rows=rowsForExport(); let txt=`CHECKLIST TURNAROUND AIR INDIA
-Flight No.: ${$('flightNo').value}
-Date: ${$('flightDate').value}
-Base Time: ${$('baseTime').value}
-Aircraft: ${$('aircraft').value}
-Bay: ${$('bay').value}
-Prepared by: ${$('preparedBy').value}
-
-`;
-  rows.forEach(r=>{ txt += `${r.STT}. ${r.Task} | Plan ${r.PlannedTime} | Actual ${r.ActualTime} | Delay ${r.DelayYN} ${r.DelayMinutes} | ${r.ReasonRemark}
-`; });
-  navigator.clipboard.writeText(txt).then(()=>alert('Đã copy báo cáo.'));
-}
-['flightNo','flightDate','baseTime','aircraft','bay','preparedBy'].forEach(id=>$(id).addEventListener('input', render));
-loadMeta(); render();
+['flightNo','flightDate','baseTime','aircraft','bay','preparedBy'].forEach(id=>el(id).addEventListener('input',render));
+loadMeta();render();
 </script>
-</body>
-</html>
+</body></html>
